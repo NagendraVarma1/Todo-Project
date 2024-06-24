@@ -1,0 +1,46 @@
+.mainDiv{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 10px;
+}
+
+.newTodo, .todoList, .completedTodo, .trash{
+    width: max-content;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.newTodo{
+    background-color: rgb(255, 183, 49);
+}
+
+.todoList{
+    background-color: blanchedalmond;
+}
+
+.completedTodo{
+    background-color: rgb(16, 240, 16);
+}
+
+.trash{
+    background-color: rgb(246, 65, 65);
+}
+
+@media screen and (min-width: 440px) and (max-width: 750px) {
+    .newTodo, .todoList, .completedTodo, .trash{
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 439.9px) {
+    
+    .newTodo, .todoList, .completedTodo, .trash{
+        font-size: 0.8rem;
+        padding: 5px 5px;
+    }
+}
+
