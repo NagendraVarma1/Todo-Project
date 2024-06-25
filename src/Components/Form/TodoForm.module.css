@@ -1,0 +1,26 @@
+.backGround{
+    background-color: #F4E7F5;
+    width: 90%;
+    margin-left: 5%;
+    height: max-content;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px;
+}
+
+.heading{
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.form{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.btn{
+    margin: 20px 40%;
+    width: 20%;
+    height: 50px;
+}
