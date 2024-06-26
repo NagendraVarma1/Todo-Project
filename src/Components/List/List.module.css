@@ -1,0 +1,15 @@
+.backGround{
+    background-color: #F4E7F5;
+    width: 90%;
+    margin-left: 5%;
+    height: max-content;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px;
+}
+li{
+    list-style-type: none;
+}
+li:nth-child(odd){
+    background-color: red;
+}

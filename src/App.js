@@ -1,18 +1,22 @@
 
-import Cards from './Components/Cards/Cards';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import TodoForm from './Components/Form/TodoForm';
-import Header from './Components/Header/Header';
-// import List from './Components/List/List';
+import RootLayout from './Components/RootLayout/RootLayout';
+import List from './Components/List/List';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        {path: '/', element: <TodoForm />},
+        {path: '/todoList', element: <List />}
+      ]
+    }
+  ])
   return (
-    <div>
-      <Header />
-      {/* has to add conditional rendering depending on the path. */}
-      <Cards />
-      <TodoForm />
-      {/* <List /> */}
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
