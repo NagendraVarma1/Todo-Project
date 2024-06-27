@@ -61,11 +61,20 @@
         font-size: 1rem;
         padding: 5px 10px;
     }
+
+    .newTodoActive, .todoListActive, .completedTodoActive, .trashActive{
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
 }
 
 @media screen and (max-width: 439.9px) {
     
     .newTodo, .todoList, .completedTodo, .trash{
+        font-size: 0.8rem;
+        padding: 5px 5px;
+    }
+    .newTodoActive, .todoListActive, .completedTodoActive, .trashActive{
         font-size: 0.8rem;
         padding: 5px 5px;
     }
