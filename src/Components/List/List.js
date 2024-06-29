@@ -36,19 +36,19 @@ const List = () => {
       <h1 style={{ textAlign: "center" }}>Todo List</h1>
       <ul>
         {data.map((data) => (
-          <li key={data.id} style={{display: "flex", justifyContent: "space-around"}}>
-            <div>
+          <li key={data.id}>
+            <div style={{display: "flex", flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
               <h1>{data.title}</h1>
-              <p>{data.description}</p>
-            </div>
-            <div>
               <p>{data.startDate}-{data.endDate}</p>
               <p>{data.status}</p>
+              <div>
+              <Button style={{height: 'max-content'}}>Edit</Button>
+              <Button style={{height: 'max-content'}}>Delete</Button>
+              </div>
+              
             </div>
-            <div>
-              <Button>Edit</Button>
-              <Button>Delete</Button>
-            </div>
+              <p>{data.description}</p>
+              
           </li>
         ))}
       </ul>

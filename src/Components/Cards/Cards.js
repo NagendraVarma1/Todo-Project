@@ -9,16 +9,16 @@ const Cards = () => {
   return (
     <div className={classes.mainDiv}>
       <div
-        className={path === "/" ? classes.newTodoActive : classes.newTodo}
-        onClick={() => navigate("/")}
+        className={path === "/form" ? classes.newTodoActive : classes.newTodo}
+        onClick={() => navigate("/form")}
       >
         New Todo
       </div>
       <div
         className={
-          path === "/todoList" ? classes.todoListActive : classes.todoList
+          path === "/" ? classes.todoListActive : classes.todoList
         }
-        onClick={() => navigate("/todoList")}
+        onClick={() => navigate("/")}
       >
         Todo List
       </div>

@@ -12,8 +12,8 @@ function App() {
       path: '/',
       element: <RootLayout />,
       children: [
-        {path: '/', element: <TodoForm />},
-        {path: '/todoList', element: <List />},
+        {path: '/', element: <List />},
+        {path: '/form', element: <TodoForm />},
         {path: '/completedTodo', element: <CompletedTodo />},
         {path: '/trash', element: <Trash />}
       ]
