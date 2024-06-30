@@ -32,12 +32,12 @@ const Cards = () => {
       >
         Completed Todo
       </div>
-      <div
+      {/* <div
         className={path === "/trash" ? classes.trashActive : classes.trash}
         onClick={() => navigate("/trash")}
       >
         Trash
-      </div>
+      </div> */}
     </div>
   );
 };

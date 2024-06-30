@@ -33,21 +33,20 @@ const List = () => {
 
   return (
     <div className={classes.backGround}>
-      <h1 style={{ textAlign: "center" }}>Todo List</h1>
+      <h1 className={classes.heading}>Todo List</h1>
       <ul>
         {data.map((data) => (
           <li key={data.id}>
-            <div style={{display: "flex", flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
+            <div className={classes.listDiv}>
               <h1>{data.title}</h1>
-              <p>{data.startDate}-{data.endDate}</p>
-              <p>{data.status}</p>
+              <p className={classes.date}><span>Date: </span>{data.startDate} - {data.endDate}</p>
               <div>
-              <Button style={{height: 'max-content'}}>Edit</Button>
-              <Button style={{height: 'max-content'}}>Delete</Button>
+              <Button variant="success" className={classes.btn}>Done</Button>
+              <Button variant="danger" className={classes.btn}>Delete</Button>
               </div>
               
             </div>
-              <p>{data.description}</p>
+              <p style={{margin: '10px 10%', textAlign: 'justify' }}>{data.description}</p>
               
           </li>
         ))}
