@@ -16,6 +16,7 @@ const Signin = () => {
         const email = emailInputRef.current.value;
         const password = passwordInputRef.current.value;
 
+        // here we have to add code of google authentication 
         authCtx.logIn(email);
         console.log(password)
         //here we have to add the authentication code
