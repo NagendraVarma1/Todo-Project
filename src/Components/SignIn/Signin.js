@@ -1,11 +1,14 @@
 import { Button, Form } from "react-bootstrap";
 import classes from './Signin.module.css'
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import AuthContext from "../../Store/auth-context";
 
 const Signin = () => {
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+
+    const authCtx = useContext(AuthContext)
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
@@ -13,7 +16,7 @@ const Signin = () => {
         const email = emailInputRef.current.value;
         const password = passwordInputRef.current.value;
 
-        localStorage.setItem('email', email);
+        authCtx.logIn(email);
         console.log(password)
         //here we have to add the authentication code
     }
