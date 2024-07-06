@@ -7,6 +7,7 @@ import CompletedTodo from './Components/CompletedTodo/CompletedTodo';
 import Signin from './Components/SignIn/Signin';
 import { useContext } from 'react';
 import AuthContext from './Store/auth-context';
+import SignUp from './Components/SignUp/SignUp';
 // import Trash from './Components/Trash/Trash';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         {path: '/', element: authCtx.loggedIn ? <List /> : <Signin />},
         {path: '/form', element: authCtx.loggedIn ? <TodoForm /> : <Signin />},
         {path: '/completedTodo', element: authCtx.loggedIn ? <CompletedTodo /> : <Signin />},
+        {path: '/signUp', element: <SignUp />}
         // {path: '/trash', element: <Trash />}
       ]
     }
