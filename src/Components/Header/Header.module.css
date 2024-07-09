@@ -6,3 +6,22 @@
 .heading{
     text-align: center;
 }
+
+.userDiv{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+}
+.userDiv p{
+    background-color: rgba(132, 129, 129, 0.319);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.btn{
+    height: max-content;
+}
+
+.hideUserDiv{
+    display: none;
+}
