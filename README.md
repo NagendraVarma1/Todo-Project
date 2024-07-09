@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Updates about the project
+
+Upto now I have completed the basic structure of the project.
+Added the firebase authentication so only the user who already logged in can access the data...
+We have to add the database for storing the data i.e., the todo which the user add through form and fetch the list on the screen.
+Has to add functionalities for the edit and delete button which are present in the list.
+It will be an user friendly todo website...so the user can only see his own stored data...
