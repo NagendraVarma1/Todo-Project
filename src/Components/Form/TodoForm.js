@@ -1,10 +1,13 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import classes from "./TodoForm.module.css";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Cards from "../Cards/Cards";
+import { useNavigate } from "react-router-dom";
 
 const TodoForm = () => {
-  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+  const user = localStorage.getItem("email");
+  const updatedEmail = user.replace("@", "").replace(".", "");
 
   const titleRef = useRef();
   const startDateRef = useRef();
@@ -28,17 +31,68 @@ const TodoForm = () => {
       status,
     };
 
-    setData((prevState) => {
-      return [...prevState, formData];
-    });
+    if (status === "pending") {
+      fetch(
+        `https://todo-project-a9541-default-rtdb.firebaseio.com/${updatedEmail}pending.json`,
+        {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              throw new Error(data.error.message);
+            });
+          }
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    }
+    else{
+      fetch(
+        `https://todo-project-a9541-default-rtdb.firebaseio.com/${updatedEmail}completed.json`,
+        {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              throw new Error(data.error.message);
+            });
+          }
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    }
 
     titleRef.current.value = "";
     startDateRef.current.value = "";
     descriptionRef.current.value = "";
     dueDateRef.current.value = "";
     statusRef.current.value = "";
+    navigate('/')
   };
-  console.log(data);
 
   return (
     <>
