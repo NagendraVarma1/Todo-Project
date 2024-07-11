@@ -1,36 +1,52 @@
 import { Button } from "react-bootstrap";
 import classes from "../List/List.module.css";
 import Cards from "../Cards/Cards";
+import { useEffect, useState } from "react";
 
 const CompletedTodo = () => {
+  const [data, setData] = useState([]);
+  const [reload, setReload] = useState(true);
+  const updatedEmail = localStorage
+    .getItem("email")
+    .replace("@", "")
+    .replace(".", "");
   //here added some dummy data for basic idea...need to modify and add styling as per the requirement.
-  const data = [
-    {
-      id: 1,
-      title: "Clean the kitchen",
-      description:
-        "Mop the floor, wipe the countertop and don't forget to take out the trash!",
-      startDate: "18-06-2024",
-      endDate: "24-06-2024",
-      status: "completed",
-    },
-    {
-      id: 2,
-      title: "Call Mom",
-      description: "It's her birthday!",
-      startDate: "18-07-2024",
-      endDate: "18-07-2024",
-      status: "pending",
-    },
-    {
-      id: 3,
-      title: "Water flowers",
-      description: "They need water, or they will die.",
-      startDate: "26-06-2024",
-      endDate: "26-06-2024",
-      status: "completed",
-    },
-  ];
+
+  const fetchHandler = () => {
+    setReload(false);
+    fetch(
+      `https://todo-project-a9541-default-rtdb.firebaseio.com/${updatedEmail}completed.json`
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            throw new Error(data.error.message);
+          });
+        }
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data)
+          const allTodoData = Object.keys(data).map((key) => ({
+            id: key,
+            description: data[key].description,
+            dueDate: data[key].dueDate,
+            startDate: data[key].startDate,
+            status: data[key].status,
+            title: data[key].title,
+          }));
+          setData(allTodoData);
+        }
+      });
+  };
+
+  useEffect(() => {
+    if (reload) {
+      fetchHandler();
+    }
+  }, [reload]);
 
   return (
     <>
@@ -38,13 +54,13 @@ const CompletedTodo = () => {
       <div className={classes.backGround}>
         <h1 className={classes.heading}>Todo List</h1>
         <ul>
-          {data.map((data) => (
+          {data&& data.map((data) => (
             <li key={data.id}>
               <div className={classes.listDiv}>
                 <h1>{data.title}</h1>
                 <p className={classes.date}>
                   <span>Date: </span>
-                  {data.startDate} - {data.endDate}
+                  {data.startDate} - {data.dueDate}
                 </p>
                 <div>
                   <Button variant="danger" className={classes.btn}>

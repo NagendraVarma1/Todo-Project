@@ -77,11 +77,6 @@ const List = () => {
                 </p>
               </li>
             ))}
-          {data.length === 0 && (
-            <h2 style={{ textAlign: "center" }}>
-              There are no tasks...Please add some....
-            </h2>
-          )}
         </ul>
       </div>
     </>
